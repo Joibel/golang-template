@@ -1,0 +1,48 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# Test output
+*.out
+coverage.*
+
+# Build directories
+bin/
+dist/
+
+# Debug files
+debug
+__debug_bin*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Go workspace
+go.work
+go.work.sum
+
+# Vendor directory
+vendor/
+
+# IDE
+.idea/
+.vscode/
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+Session.vim
+
+# Environment files
+.env*
+.direnv/
