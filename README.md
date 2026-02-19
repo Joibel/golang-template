@@ -64,7 +64,7 @@ make help         Show all available targets
 .
 ├── .github/workflows/ci.yml  # GitHub Actions CI pipeline
 ├── .golangci.yaml            # Linter configuration (60+ linters)
-├── internal/version/         # Build-time version info
+├── internal/buildinfo/       # Build-time version info
 ├── Dockerfile                # Multi-stage distroless build
 ├── Makefile                  # Build automation
 ├── shell.nix                 # Nix development environment

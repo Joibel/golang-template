@@ -184,8 +184,8 @@ linters:
           - noctx
           - thelper
 
-      # Version package uses globals set via ldflags at build time
-      - path: internal/version/
+      # Build info package uses globals set via ldflags at build time
+      - path: internal/buildinfo/
         linters:
           - gochecknoglobals
 

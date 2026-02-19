@@ -12,9 +12,9 @@ BUILD_TIME := $(shell date -u '+%Y-%m-%dT%H:%M:%SZ')
 # Go settings
 GOFLAGS := -trimpath
 LDFLAGS := -s -w \
-	-X $(MODULE)/internal/version.Version=$(VERSION) \
-	-X $(MODULE)/internal/version.Commit=$(COMMIT) \
-	-X $(MODULE)/internal/version.BuildTime=$(BUILD_TIME)
+	-X $(MODULE)/internal/buildinfo.Version=$(VERSION) \
+	-X $(MODULE)/internal/buildinfo.Commit=$(COMMIT) \
+	-X $(MODULE)/internal/buildinfo.BuildTime=$(BUILD_TIME)
 CGO_ENABLED := 0
 TEST_TIMEOUT := 5m
 

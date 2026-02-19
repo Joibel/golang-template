@@ -56,9 +56,9 @@ jobs:
           CGO_ENABLED=0 go build \
             -trimpath \
             -ldflags="-s -w \
-              -X 'example.com/myproject/internal/version.Version=${{ github.ref_name }}' \
-              -X 'example.com/myproject/internal/version.Commit=${{ github.sha }}' \
-              -X 'example.com/myproject/internal/version.BuildTime=$(date -u +%Y-%m-%dT%H:%M:%SZ)'" \
+              -X 'example.com/myproject/internal/buildinfo.Version=${{ github.ref_name }}' \
+              -X 'example.com/myproject/internal/buildinfo.Commit=${{ github.sha }}' \
+              -X 'example.com/myproject/internal/buildinfo.BuildTime=$(date -u +%Y-%m-%dT%H:%M:%SZ)'" \
             -o bin/myproject \
             .
       - name: Upload artifact

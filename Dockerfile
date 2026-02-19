@@ -19,9 +19,9 @@ ARG BUILD_TIME=unknown
 RUN CGO_ENABLED=0 go build \
     -trimpath \
     -ldflags="-s -w \
-        -X 'example.com/myproject/internal/version.Version=${VERSION}' \
-        -X 'example.com/myproject/internal/version.Commit=${COMMIT}' \
-        -X 'example.com/myproject/internal/version.BuildTime=${BUILD_TIME}'" \
+        -X 'example.com/myproject/internal/buildinfo.Version=${VERSION}' \
+        -X 'example.com/myproject/internal/buildinfo.Commit=${COMMIT}' \
+        -X 'example.com/myproject/internal/buildinfo.BuildTime=${BUILD_TIME}'" \
     -o myproject \
     .
 

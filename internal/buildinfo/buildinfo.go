@@ -1,5 +1,5 @@
-// Package version provides build-time version information.
-package version
+// Package buildinfo provides build-time version information.
+package buildinfo
 
 // Build-time variables (set via -ldflags).
 var (
