@@ -16,13 +16,19 @@ A template for Go projects with comprehensive linting, build automation, and mod
 
 1. Copy this template to your new project
 2. Update the configuration (see [Configuration](#configuration) below)
-3. Run `direnv allow` or `nix-shell` to enter the development environment
+3. Run `direnv allow` or `devenv shell` to enter the development environment
 4. Run `make all` to verify everything works
 
 ## Requirements
 
 - [Nix](https://nixos.org/download.html) package manager
+- [devenv](https://devenv.sh/getting-started/)
 - [direnv](https://direnv.net/) (optional, for automatic environment activation)
+
+The toolchain is pinned to an exact `nixpkgs` revision in `devenv.yaml`, with
+resolved hashes in `devenv.lock`, so every developer gets the same Go and
+golangci-lint versions that CI uses. To move to newer tooling, edit the
+revision in `devenv.yaml` and run `devenv update`.
 
 ## Configuration
 
@@ -67,7 +73,9 @@ make help         Show all available targets
 ├── internal/buildinfo/       # Build-time version info
 ├── Dockerfile                # Multi-stage distroless build
 ├── Makefile                  # Build automation
-├── shell.nix                 # Nix development environment
+├── devenv.nix                # Development environment definition
+├── devenv.yaml               # Pinned nixpkgs input
+├── devenv.lock               # Resolved input hashes
 ├── .envrc                    # direnv configuration
 ├── renovate.json             # Dependency update automation
 └── main.go                   # Application entry point

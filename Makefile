@@ -18,8 +18,11 @@ LDFLAGS := -s -w \
 CGO_ENABLED := 0
 TEST_TIMEOUT := 5m
 
+# Pinned tool versions (kept in step with .github/workflows/ci.yml)
+GOVULNCHECK_VERSION := v1.6.0
+
 # Source files
-GO_FILES := $(shell find . -name '*.go' -type f -not -path './vendor/*')
+GO_FILES := $(shell find . -name '*.go' -type f -not -path './vendor/*' -not -path './.devenv/*')
 
 # Default target
 .DEFAULT_GOAL := all
@@ -56,8 +59,8 @@ lint/fix: ## Auto-fix lint issues
 
 .PHONY: fmt
 fmt: ## Format code
-	gofmt -s -w .
-	goimports -w -local $(MODULE) .
+	gofmt -s -w $(GO_FILES)
+	goimports -w -local $(MODULE) $(GO_FILES)
 
 .PHONY: vet
 vet: ## Run go vet
@@ -67,7 +70,7 @@ vet: ## Run go vet
 audit: ## Run security and dependency checks
 	go mod tidy -diff
 	go mod verify
-	govulncheck ./...
+	go run golang.org/x/vuln/cmd/govulncheck@$(GOVULNCHECK_VERSION) ./...
 
 .PHONY: deps
 deps: ## Download and tidy dependencies

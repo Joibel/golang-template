@@ -178,12 +178,14 @@
     },
     {
       "customType": "regex",
-      "description": "govulncheck version in CI workflow",
+      "description": "govulncheck version in CI workflow and Makefile",
       "managerFilePatterns": [
-        "/^\\.github/workflows/.*\\.yml$/"
+        "/^\\.github/workflows/.*\\.yml$/",
+        "/^Makefile$/"
       ],
       "matchStrings": [
-        "govulncheck@(?<currentValue>v[\\d.]+)"
+        "govulncheck@(?<currentValue>v[\\d.]+)",
+        "GOVULNCHECK_VERSION\\s*:=\\s*(?<currentValue>v[\\d.]+)"
       ],
       "depNameTemplate": "golang.org/x/vuln",
       "datasourceTemplate": "go"

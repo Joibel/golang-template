@@ -45,4 +45,11 @@ Session.vim
 
 # Environment files
 .env*
+!.envrc
 .direnv/
+
+# devenv (devenv.nix, devenv.yaml and devenv.lock are committed)
+.devenv/
+.devenv.flake.nix
+devenv.local.nix
+.gitnexus
